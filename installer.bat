@@ -6,7 +6,7 @@ rem "cls" here clears output of chcp command that says its now using other chara
 cls
 
 rem Version variables
-set "ver=pre-alpha 0.0.0.1"
+set "ver=pre-alpha 0.0.0.2"
 
 rem Set "select" variable to "r" to make sure installer.bat doesnt crash when nothing is inputted on fresh boot
 set "select=r"
