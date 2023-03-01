@@ -2,13 +2,11 @@
 title Main Menu
 rem "chcp 65001" allows to use non ASCII characters
 chcp 65001
-rem If you want to change filename you also need to change it here:
-set "BasicBatchMenuFilename=installer.bat"
 rem "cls" here clears output of chcp command that says its now using other character set
 cls
 
 rem Version variables
-set "ver=x.x.x"
+set "ver=pre-alpha 0.0.0.1"
 
 rem Set "select" variable to "r" to make sure installer.bat doesnt crash when nothing is inputted on fresh boot
 set "select=r"
@@ -45,12 +43,11 @@ goto boot
 
 rem Booting procedure and boot logo/art
 :boot
-echo      ASCII
-echo                        ART
-echo                                        GOES
-echo                                                         Here
-echo                                                                          :D
-echo                  Version %ver%                               by KRWCLASSIC
+echo  ____  ___  ___  ____    __    ____   ___  _   _  ____ 
+echo (  _ \/ __)(__ )(  - \  /__\  (_  _) / __)( )_( )(_  _)
+echo  )___/\__ \ (_ \ ) _ ^< /(  )\   )(  ( (__  ) _ (  _)(_  by KRWCLASSIC
+echo (__)  (___/(___/(____/(__)(__) (__)  \___)(_) (_)(____) 
+echo                 Version %ver%
 echo.
 echo.
 
@@ -100,21 +97,20 @@ call somefile5.bat
 exit
 
 :dl-src
-title Downloading (Your app name) files...
-mkdir temp & rem Installing 7-Zip from GitHub
+title Downloading PS3BATCHI (P3B) files...
+mkdir temp & rem Installing 7-Zip and P3B from GitHub
 cd temp
 cls
 echo Downloading embeded 7-Zip...
 echo.
 rem Downloading 7zip to unzip files from github
-rem If you dont want to add 7z to your files you can use this link: https://github.com/KRWCLASSIC/OpenModpackEngine/raw/master/src/misc/7zEmbeded.exe
-curl -LJOS https://github.com/(RepoAuthor)/(Repo)/raw/master/src/(misc)/7zEmbeded.exe
+curl -LJOS https://github.com/KRWCLASSIC/PS3BACHI/raw/master/src/misc/7zEmbeded.exe
 cls & rem Creating temp folder outside of the "src" folder (because it isnt exists yet) and downloading into it OME github repo
 echo Downloading neccessary files...
 echo.
 rem Downloading entire repo
-curl -LJO https://github.com/(RepoAuthor)/(Repo)/archive/master.zip
-"7zEmbeded.exe" x -y (Repo)-master.zip
+curl -LJO https://github.com/KRWCLASSIC/PS3BACHI/archive/master.zip
+"7zEmbeded.exe" x -y PS3BACHI-master.zip
 cls
 cd .. & rem Moving out "src" folder out of the "temp" folder and removing unnecessary "temp" folder
 move /y "temp/(Repo)/src" .
@@ -124,7 +120,7 @@ goto r
 
 rem Restart installer procedure
 :r
-call %BasicBatchMenuFilename%
+call installer.bat
 exit
 
 rem Closing installer procedure
