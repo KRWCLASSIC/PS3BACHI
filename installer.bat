@@ -51,49 +51,52 @@ echo                 Version %ver%
 echo.
 echo.
 
+rem P3M - PS3MAPI
+rem P3B - PS3BATCHI
+
 rem Selection procedure
-echo 1) Option 1
-echo 2) Option 2
-echo 3) Option 3
-echo 4) Option 4
-echo 5) Option 5
+echo 1) Check PS3MAPI connection.
+echo 2) Send message to PS3.
+echo 3) Other PS3MAPI features.
+echo 4) Settings.
+echo 5) Info.
 echo.
 set /p select="Option: "
 
-if %select%==1 goto 1
-if %select%==2 goto 2
-if %select%==3 goto 3
-if %select%==4 goto 4
-if %select%==5 goto 5
+if %select%==1 goto chk-p3m-con
+if %select%==2 goto send-msg
+if %select%==3 goto o-p3m-funcs
+if %select%==4 goto settings
+if %select%==5 goto info
 rem Restart procedure
 if %select%==r goto r
 
 rem Selection executables
 rem "exit" line between of each tag is to make sure installer.bat window is getting closed when opening other *.bat file
 
-:1
-cd src/somefolder
-call somefile1.bat
+:chk-p3m-con
+cd src/misc
+call connection-check.bat
 exit
 
-:2
-cd src/somefolder
-call somefile2.bat
+:send-msg
+cd src/misc/ps3mapi-func
+call send-msg.bat
 exit
 
-:3
-cd src/somefolder
-call somefile3.bat
+:o-p3m-funcs
+cd src/misc/ps3mapi-func
+call p3m-menu.bat
 exit
 
-:4
-cd src/somefolder
-call somefile4.bat
+:settings
+cd src/misc
+call settings.bat
 exit
 
-:5
-cd src/somefolder
-call somefile5.bat
+:info
+cd src/misc
+call info.bat
 exit
 
 :dl-src

@@ -5,10 +5,8 @@ set "settingsloaded=false"
 cls
 
 echo 1) Change P3B Profile.
-echo 2) Edit P3B Profile.
-echo 3) Import OMEmodules.
-echo 4) Update OME.
-echo 5) OME Mods.
+echo 2) Add P3B Profile.
+echo 3) Edit P3B Profile.
 echo.
 echo 0) Back
 echo.
@@ -16,37 +14,28 @@ set "settings-select=0"
 set /p settings-select="Option: "
 if "%settings-select%"==" " goto back
 if %settings-select%==0 goto back
-if %settings-select%==1 goto c-mcd
-if %settings-select%==2 goto ExOMEm
-if %settings-select%==3 goto ImOMEm
-if %settings-select%==4 goto OMEupdate
-if %settings-select%==5 goto OMEmods
+if %settings-select%==1 goto c-p3b-p
+if %settings-select%==2 goto a-p3b-p
+if %settings-select%==3 goto e-p3b-p
 goto back
 
-:c-mcd
-call chg-mc-dir.bat
-
-:OMEupdate
-cd tools
-call update-handler.bat
-goto back
-
-:OMEmods
+:c-p3b-p
 cls
-echo OME modding isn't implemented yet!
+echo This isn't implemented yet!
 timeout 2 >nul
 goto start
 
-:ExOMEm
+:a-p3b-p
 cls
-echo Exporting OMEmodules isn't implemented yet!
+echo This isn't implemented yet!
 timeout 2 >nul
 goto start
 
-:ImOMEm
-cd tools
-call module-importer.bat
-goto back
+:e-p3b-p
+cls
+echo This isn't implemented yet!
+timeout 2 >nul
+goto start
 
 :back
 cd ../..
