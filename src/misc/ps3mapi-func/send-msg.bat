@@ -13,13 +13,8 @@ set /p msg="Message: "
 curl http://192.168.%c-ip%/notify.ps3mapi?msg=%msg% >nul 2>&1
 
 :next
-goto msg
+goto back
 
 :back
-rem Moving created OMEmodule to "OMEmodules" folder and going back to main menu (installer.bat)
-cd ../../../..
-move /y "src\misc\tools\working-dir\%filename%.OMEmodule" "src\misc\OMEmodules\%filename%.OMEmodule" >nul
-cls
-echo "%filename%.OMEmodule" moved to "OMEmodules" folder!
-timeout 6 >nul
+cd ../../..
 call installer.bat
